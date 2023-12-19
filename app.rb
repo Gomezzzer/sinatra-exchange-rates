@@ -33,11 +33,10 @@ get("/:from_currency") do
   raw_data = HTTP.get(api_url)
   raw_data_string = raw_data.to_s
   parsed_data = JSON.parse(raw_data_string)
-  @symbols = parsed_data.fetch("currencies").keys
+  @symbols = parsed_data.fetch("currencies").keys 
 
   erb(:from_currency) 
-  
-  # some more code to parse the URL and render a view template
+   
 end
 
 get("/:from_currency/:to_currency") do
@@ -53,5 +52,4 @@ get("/:from_currency/:to_currency") do
 
   erb(:to_currency) 
   
-  # some more code to parse the URL and render a view template
 end
